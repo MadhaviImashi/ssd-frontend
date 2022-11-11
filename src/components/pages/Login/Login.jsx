@@ -111,8 +111,9 @@ const Login = () => {
                 navigate("/worker-home");
               }
               else if (userType === 'manager') {
+                console.log('inside manager nav')
                 navigate("/manager-home");
-              }
+              }  
             })
             .catch((err) => {
               Swal.fire({
@@ -121,29 +122,6 @@ const Login = () => {
                 text: "Login Failed!. Please check your credentials.",
               });
             })
-      // api
-      //   .SignIn(data)
-
-      //   .then((res) => {
-      //     console.log(res.data);
-      //     localStorage.setItem("token", res.data.token);
-      //     localStorage.setItem("user_id", res.data.userId);
-      //     localStorage.setItem("type", res.data.type);
-      //     localStorage.setItem("email", res.data.email);
-      //     localStorage.setItem("phone", res.data.mobile);
-      //     localStorage.setItem("name", res.data.name);
-      //     navigate("/");
-
-
-      //   })
-      //   .catch((err) => {
-      //     console.log(err);
-      //     Swal.fire({
-      //       icon: "error",
-      //       title: "Oops...",
-      //       text: "Login Failed!. Please check your credentials.",
-      //     });
-      //   });
     },
   });
 
@@ -197,17 +175,6 @@ const Login = () => {
                     Login
                   </Button>
                 </ThemeProvider>
-                {/* <h6>Not Registered Yet?</h6>
-                <ThemeProvider theme={OuterTheme}>
-                  <Button
-                    color="primary"
-                    variant="contained"
-                    fullWidth
-                    onClick={res}
-                  >
-                    Register
-                  </Button>
-                </ThemeProvider> */}
               </form>
             </ContentBox>
           </Grid>
