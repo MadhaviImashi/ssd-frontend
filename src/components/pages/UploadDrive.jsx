@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import googleLogo from '../../assets/google_drive_logo.png';
-import './upload.css';
+import './styles.css';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
