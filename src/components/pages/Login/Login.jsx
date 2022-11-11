@@ -189,12 +189,12 @@ const Login = () => {
                     variant="contained"
                     fullWidth
                     type="submit"
-                    style={{ marginBottom: "20px" }}
+                    style={{ marginBottom: "20px", backgroundColor: "#0a0a4a", color: "white"}}
                   >
                     Login
                   </Button>
                 </ThemeProvider>
-                <h6>Not Registered Yet?</h6>
+                {/* <h6>Not Registered Yet?</h6>
                 <ThemeProvider theme={OuterTheme}>
                   <Button
                     color="primary"
@@ -204,7 +204,7 @@ const Login = () => {
                   >
                     Register
                   </Button>
-                </ThemeProvider>
+                </ThemeProvider> */}
               </form>
             </ContentBox>
           </Grid>
