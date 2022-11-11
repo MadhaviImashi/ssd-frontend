@@ -1,6 +1,6 @@
 import { getByIDRequest,postRequest, deleteRequest } from "../util";
 
-const BASE_URL = "http://localhost:4001";
+const BASE_URL = "https://localhost:4001";
 
 export const getCartByUserId = (uri, id) => getByIDRequest(BASE_URL, uri, id);
 
