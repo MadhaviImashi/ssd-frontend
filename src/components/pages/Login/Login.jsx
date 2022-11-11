@@ -111,8 +111,9 @@ const Login = () => {
                 navigate("/worker-home");
               }
               else if (userType === 'manager') {
+                console.log('inside manager nav')
                 navigate("/manager-home");
-              }
+              }  
             })
             .catch((err) => {
               Swal.fire({
