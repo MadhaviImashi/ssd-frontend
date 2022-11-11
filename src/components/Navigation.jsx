@@ -1,31 +1,11 @@
 import React, {Component} from 'react';
-import {Link} from "react-router-dom";
 
 class Navigation extends Component {
     render() {
         return (
-            <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-                <div className="container-fluid">
-                    <Link className="navbar-brand" to="/">OAuth Application</Link>
-                    <div className="collapse navbar-collapse" id="navbarText">
-                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li className="nav-item">
-                                <Link className="nav-link" to="/">Home</Link>
-                            </li>
-                            {/*<li className="nav-item">*/}
-                            {/*    <Link className="nav-link" to="/upload">Upload</Link>*/}
-                            {/*</li>*/}
-                            {/*<li className="nav-item">*/}
-                            {/*    <Link className="nav-link" to="/view">View</Link>*/}
-                            {/*</li>*/}
-                            <li className="nav-item">
-                                <Link className="nav-link" to="/about">About us</Link>
-                            </li>
-                        </ul>
-                        <span className="navbar-text fw-bold">
-                            by Team &lt;/BackSlash&gt;
-                        </span>
-                    </div>
+            <nav className="navbar navbar-expand-lg navbar-dark bg-primary" style={{ backgroundColor: "black", minWidth: "100%", position: "fixed"}}>
+                <div className="container-fluid" style={{marginLeft: "20px", color: "white", backgroundColor: "black"}}>
+                    <div className="navbar-brand" to="/" style={{ padding: "20px", fontSize: "20px", fontWeight: "400"}}>ABC Company</div>
                 </div>
             </nav>
         );

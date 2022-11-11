@@ -7,6 +7,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import api, { SignIn } from "../../../API/Auth/auth";
+import Navigation from "../../Navigation";
 
 const FlexBox = styled(Box)(() => ({
   display: "flex",
@@ -151,6 +152,8 @@ const Login = () => {
   };
 
   return (
+    <>
+      <Navigation />
     <Root>
       <Card className="card">
         <Grid container>
@@ -210,7 +213,8 @@ const Login = () => {
           </Grid>
         </Grid>
       </Card>
-    </Root>
+      </Root>
+      </>
   );
 };
 
