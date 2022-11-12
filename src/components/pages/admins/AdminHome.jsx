@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router";
 import { Button } from "@mui/material";
+import AddStaffMemberForm from "./AddStaffMembers";
 
 const AdminHome = () => {
 
@@ -49,6 +50,7 @@ const AdminHome = () => {
             style={{ paddingTop: "0px", marginRight: "20px", color: "#0a0a4a", textDecoration: "underline"}}>Logout
         </Button></div>
       </div>
+      <AddStaffMemberForm />
       
     </>
   );
