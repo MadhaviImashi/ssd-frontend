@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router";
 import { Button } from "@mui/material";
+import Navigation from "../../Navigation";
 
 const WorkerHome = () => {
 
@@ -37,11 +38,7 @@ const WorkerHome = () => {
     
   return (
     <>
-       <nav className="navbar navbar-expand-lg navbar-dark bg-primary" style={{ backgroundColor: "black", minWidth: "100%", position: "fixed"}}>
-                <div className="container-fluid" style={{marginLeft: "20px", color: "white", backgroundColor: "black"}}>
-                    <div className="navbar-brand" to="/" style={{ padding: "20px", fontSize: "20px", fontWeight: "400"}}>🚀 ABC Company</div>
-                </div>
-      </nav><br /><br/><br/>
+       <Navigation />
       <div style={{display: "flex", flexDirection: "row", marginTop: "25px", justifyContent: "space-between"}}>
         <div style={{ paddingLeft: "40px", fontSize: "18px", fontWeight: "400" }}>ABC Company / Workers</div>
         <div><Button
