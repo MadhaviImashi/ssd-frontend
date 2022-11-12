@@ -40,10 +40,10 @@ const WorkerHome = () => {
     <>
        <Navigation />
       <div style={{display: "flex", flexDirection: "row", marginTop: "25px", justifyContent: "space-between"}}>
-        <div style={{ paddingLeft: "40px", fontSize: "18px", fontWeight: "400" }}>ABC Company / Workers</div>
+        <div style={{ paddingLeft: "40px", fontSize: "18px", fontWeight: "500" }}>ABC Company / Workers</div>
         <div><Button
             onClick={logout}
-            style={{ paddingTop: "0px", marginRight: "20px", color: "#0a0a4a", textDecoration: "underline"}}>Logout
+            style={{ paddingTop: "0px", marginRight: "20px", color: "#0a0a4a", textDecoration: "underline", fontWeight: "600" }}>Logout
         </Button></div>
       </div>
       
