@@ -19,3 +19,29 @@
     min-height: 100vh;
     background-color: #0a0a4a !important;
 }
+
+.upload-container {
+    background-color: rgb(239, 239, 239);
+    border-radius: 6px;
+    padding: 10px;
+    max-width: 600px;
+    height: 270px;
+    margin: auto;
+}
+
+.border-container {
+    border: 5px dashed rgba(198, 198, 198, 0.65);
+    border-radius: 6px;
+    padding: 20px;
+    min-height: 250px;
+}
+
+.border-container p {
+    color: #130f40;
+    font-weight: 600;
+    font-size: 1.1em;
+    letter-spacing: -1px;
+    margin-top: 30px;
+    margin-bottom: 0;
+    opacity: 0.65;
+}
