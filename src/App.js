@@ -16,7 +16,6 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Login />} />
                     <Route path="/login" element={<Login />} />
-                    <Route path="/upload" element={<UploadDrive />} />
                     <Route path="/admin-home" element={<AdminHome />} />
                     <Route path="/worker-home" element={<WorkerHome />} />
                     <Route path="/manager-home" element={<ManagerHome />} />
