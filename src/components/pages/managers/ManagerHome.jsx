@@ -3,6 +3,9 @@ import { useNavigate } from "react-router";
 import { Button } from "@mui/material";
 import Navigation from "../../Navigation";
 import SendMessageBox from "../../sendMessageBox";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import UploadDrive from "../UploadDrive";
 
 const ManagerHome = () => {
 
@@ -12,7 +15,16 @@ const ManagerHome = () => {
   const isLoggedIn = localStorage.getItem("token");
   const userType = localStorage.getItem("type");
   React.useEffect(() => {
-    if (!isLoggedIn && userType!=="manager") {
+    if (!isLoggedIn && userType !== "manager") {
+      toast.error("You must first login to view the messages", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      }); 
       Navigate('/login');
     }
     if (isLoggedIn) {
@@ -39,7 +51,8 @@ const ManagerHome = () => {
     
   return (
     <>
-       <Navigation />
+      <Navigation />
+      <ToastContainer />
       <div style={{display: "flex", flexDirection: "row", marginTop: "25px", justifyContent: "space-between"}}>
         <div style={{ paddingLeft: "40px", fontSize: "18px", fontWeight: "500" }}>ABC Company / Managers</div>
         <div><Button
@@ -49,8 +62,9 @@ const ManagerHome = () => {
       </div>
 
       {/* send messages */}
-      <SendMessageBox/>
+      <SendMessageBox />
       
+      <UploadDrive />
     </>
   );
 };

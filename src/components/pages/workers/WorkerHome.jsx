@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router";
 import { Button } from "@mui/material";
 import Navigation from "../../Navigation";
+import SendMessageBox from "../../sendMessageBox";
 
 const WorkerHome = () => {
 
@@ -46,6 +47,8 @@ const WorkerHome = () => {
             style={{ paddingTop: "0px", marginRight: "20px", color: "#0a0a4a", textDecoration: "underline", fontWeight: "600" }}>Logout
         </Button></div>
       </div>
+
+      <SendMessageBox />
       
     </>
   );
