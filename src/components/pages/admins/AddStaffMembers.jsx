@@ -213,7 +213,7 @@ const AddStaffMemberForm = () => {
               </Form.Group>
 
               <div className="mb-4 ">
-                <Button type="submit" className="btn-login" name="submit">
+                <Button type="submit" className="btnLogin" name="submit">
                   Register
                 </Button>
               </div>
