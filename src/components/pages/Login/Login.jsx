@@ -101,6 +101,17 @@ const Login = () => {
 
       SignIn("/api/auth/login", data)
         .then((res) => {
+            //show success msg
+            toast.success("Login successful!", {
+              position: "top-right",
+              autoClose: 3000,
+              hideProgressBar: true,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+            });
+
               console.log(res.data);
               localStorage.setItem("token", res.data.access_token);
               localStorage.setItem("user_id", res.data.user_id);
@@ -108,19 +119,9 @@ const Login = () => {
               localStorage.setItem("email", res.data.email);
               localStorage.setItem("name", res.data.name);
               
-              // userType = localStorage.getItem("type");
-              // console.log('usertye', userType)
+              userType = localStorage.getItem("type");
+              console.log('usertye', userType)
               
-              //show success msg
-              toast.success("Login successful!", {
-                position: "top-right",
-                autoClose: 3000,
-                hideProgressBar: true,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-              });
               if (userType === 'admin') {
                 console.log('inside admin nav')
                 navigate("/admin-home")
