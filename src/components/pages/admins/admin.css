@@ -34,16 +34,17 @@
     padding: 0 25px 25px 25px;
   }
   
-  .btn-login {
+  .btnLogin {
     border: none;
     outline: none;
     height: 50px;
     width: 100%;
-    background-color: black;
+    background-color: black !important;
     color: white;
     border-radius: 4px;
     font-weight: bold;
     box-shadow: 6px 6px 12px rgba(57, 57, 57, 0.783);
+    padding: 5px !important;
   }
   
   .btn-login:hover {
