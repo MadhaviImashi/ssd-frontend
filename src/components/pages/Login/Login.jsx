@@ -9,6 +9,7 @@ import { SignIn } from "../../../API/Auth/auth";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Navigation from "../../Navigation";
+import './login.css'
 
 const FlexBox = styled(Box)(() => ({
   display: "flex",
@@ -155,7 +156,7 @@ const Login = () => {
       <Navigation />
       <Root>
         <ToastContainer />
-      <Card className="card">
+      <Card className="card" style={{padding: "0 !important"}}>
         <Grid container>
           <Grid item lg={12} md={12} sm={12} xs={12}>
             <ContentBox>
