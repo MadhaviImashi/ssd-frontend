@@ -67,11 +67,12 @@ const validationSchema = yup.object({
 const Login = () => {
   const navigate = useNavigate();
   const [isLoggedIn] = React.useState(localStorage.getItem("token"));
-  const userType = localStorage.getItem("type");
+  let userType = localStorage.getItem("type");
 
   React.useEffect(() => {
     if (isLoggedIn) {
       if (userType === 'admin') {
+        console.log('inside useEFf')
         navigate("/admin-home")
       }
       else if (userType === 'worker') {
@@ -106,6 +107,9 @@ const Login = () => {
               localStorage.setItem("email", res.data.email);
               localStorage.setItem("name", res.data.name);
               
+              // userType = localStorage.getItem("type");
+              // console.log('usertye', userType)
+              
               //show success msg
               toast.success("Login successful!", {
                 position: "top-right",
@@ -117,6 +121,7 @@ const Login = () => {
                 progress: undefined,
               });
               if (userType === 'admin') {
+                console.log('inside admin nav')
                 navigate("/admin-home")
               }
               else if (userType === 'worker') {

@@ -38,7 +38,7 @@ const AddStaffMemberForm = () => {
     onSubmit: (values) => {
       //first check whether both pwds are same
       if (values.password !== values.confirmPassword) {
-        toast.error("Please confirm the password", {
+        toast.error("Please enter the same password", {
           position: "top-right",
           autoClose: 3000,
           hideProgressBar: true,
@@ -48,6 +48,17 @@ const AddStaffMemberForm = () => {
           progress: undefined,
         }); 
       }
+      else if(values.password.length < 8) {
+        toast.error("Password should be minimum of 8 characters!", {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          }); 
+        }
       else {
         fetch("https://localhost:4000/api/auth/register", {
           method: "POST",
