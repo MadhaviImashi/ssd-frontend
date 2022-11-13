@@ -5,8 +5,9 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useNavigate } from "react-router";
-import Swal from "sweetalert2";
-import api, { SignIn } from "../../../API/Auth/auth";
+import { SignIn } from "../../../API/Auth/auth";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Navigation from "../../Navigation";
 
 const FlexBox = styled(Box)(() => ({
@@ -97,13 +98,24 @@ const Login = () => {
       };
 
       SignIn("/api/auth/login", data)
-            .then((res) => {
+        .then((res) => {
               console.log(res.data);
               localStorage.setItem("token", res.data.access_token);
               localStorage.setItem("user_id", res.data.user_id);
               localStorage.setItem("type", res.data.type);
               localStorage.setItem("email", res.data.email);
               localStorage.setItem("name", res.data.name);
+              
+              //show success msg
+              toast.success("Login successful!", {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+              });
               if (userType === 'admin') {
                 navigate("/admin-home")
               }
@@ -116,11 +128,15 @@ const Login = () => {
               }  
             })
             .catch((err) => {
-              Swal.fire({
-                icon: "error",
-                title: "Oops...",
-                text: "Login Failed!. Please check your credentials.",
-              });
+              toast.error("Err: Invalid Login!", {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+              }); 
             })
     },
   });
@@ -132,7 +148,8 @@ const Login = () => {
   return (
     <>
       <Navigation />
-    <Root>
+      <Root>
+        <ToastContainer />
       <Card className="card">
         <Grid container>
           <Grid item lg={12} md={12} sm={12} xs={12}>

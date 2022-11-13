@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import googleLogo from '../../assets/google_drive_logo.png';
 import './styles.css';
 
 import { ToastContainer, toast } from 'react-toastify';
@@ -195,33 +194,37 @@ class UploadDrive extends Component {
             <div className="wrapper">
                 <ToastContainer />
                 <div className="container">
-                    <img src={googleLogo} width="70" height="70" alt="google drive"/>
-                    <h3>
-                        Upload a Image
-                    </h3>
+                    {/* <img src={googleLogo} width="40" height="40" alt="google drive"/> */}
+                    <h6 style={{marginBottom: 5, color: "darkgray", marginTop: 60, textAlign: "center"}}>
+                                Upload files
+                    </h6>
+                    
                     <div className="upload-container">
                         <div className="border-container">
-                            <input
-                                className="btn btn-success"
-                                id="files"
-                                type="file"
-                                name="files[]"
-                                onChange={this.fileSelectedHandler}
-                                ref={ref=> this.fileInput = ref}
-                                // multiple
-                            /> &nbsp;
-                            <button className="btn btn-dark" id="upload" onClick={this.fileUploadHandler}>Upload</button> &nbsp;
-                            <button className="btn btn-danger" id="upload" onClick={this.clearImage}>Clear</button>
-                            <br/> <br/>
+                            <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", padding: "10px"}}>
+                                <input
+                                    style={{ marginLeft: "160px", color: "gray"}}
+                                    id="files"
+                                    type="file"
+                                    name="files[]"
+                                    onChange={this.fileSelectedHandler}
+                                    ref={ref=> this.fileInput = ref}
+                                    // multiple
+                                />
+                                <img id="target" src={this.state.image} style={{maxWidth: "100px", maxHeight: "55px"}} alt=""/>
+                            </div>
+                            <div style={{ padding: 5, marginTop: 45, display: "flex", flexDirection: "row", justifyContent: "end"}}>
+                                <button style={{ padding: 5, borderRadius: 10, width: 90, height: 40}} className="btn-success" id="upload" onClick={this.fileUploadHandler}>Upload</button> &nbsp;
+                                <button style={{ padding: 5, borderRadius: 10, width: 80, height: 40}} className="btn-danger" id="upload" onClick={this.clearImage}>Clear</button>
+                                <br/> <br/>
+                            </div>
                             <Progress
                                 percent={this.state.progress}
                             />
                         </div>
-
                     </div>
+                    <br/>
                 </div>
-                <br/>
-                <img id="target" src={this.state.image} style={{"width": "200px"}} alt=""/>
             </div>
         );
     }

@@ -1,6 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router";
 import { Button } from "@mui/material";
+import Navigation from "../../Navigation";
+import SendMessageBox from "../../sendMessageBox";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import UploadDrive from "../UploadDrive";
 
 const ManagerHome = () => {
 
@@ -10,7 +15,16 @@ const ManagerHome = () => {
   const isLoggedIn = localStorage.getItem("token");
   const userType = localStorage.getItem("type");
   React.useEffect(() => {
-    if (!isLoggedIn && userType!=="manager") {
+    if (!isLoggedIn && userType !== "manager") {
+      toast.error("You must first login to view the messages", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      }); 
       Navigate('/login');
     }
     if (isLoggedIn) {
@@ -37,19 +51,20 @@ const ManagerHome = () => {
     
   return (
     <>
-       <nav className="navbar navbar-expand-lg navbar-dark bg-primary" style={{ backgroundColor: "black", minWidth: "100%", position: "fixed"}}>
-                <div className="container-fluid" style={{marginLeft: "20px", color: "white", backgroundColor: "black"}}>
-                    <div className="navbar-brand" to="/" style={{ padding: "20px", fontSize: "20px", fontWeight: "400"}}>🚀 ABC Company</div>
-                </div>
-      </nav><br /><br/><br/>
+      <Navigation />
+      <ToastContainer />
       <div style={{display: "flex", flexDirection: "row", marginTop: "25px", justifyContent: "space-between"}}>
-        <div style={{ paddingLeft: "40px", fontSize: "18px", fontWeight: "400" }}>ABC Company / Managers</div>
+        <div style={{ paddingLeft: "40px", fontSize: "18px", fontWeight: "500" }}>ABC Company / Managers</div>
         <div><Button
             onClick={logout}
-            style={{ paddingTop: "0px", marginRight: "20px", color: "#0a0a4a", textDecoration: "underline"}}>Logout
+            style={{ paddingTop: "0px", marginRight: "20px", color: "#0a0a4a", textDecoration: "underline", fontWeight: "600" }}>Logout
         </Button></div>
       </div>
+
+      {/* send messages */}
+      <SendMessageBox />
       
+      <UploadDrive />
     </>
   );
 };

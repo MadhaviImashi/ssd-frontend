@@ -1,0 +1,107 @@
+.staff-signup-outer-wrapper {
+    padding-top: 4%;
+    padding-bottom: 3%;
+    max-width: 800px;
+    margin: auto;
+  }
+  .outer-wrapper {
+    padding-top: 5%;
+  }
+  
+  .signup-container {
+    /* background-color: rgb(0, 1, 1); */
+    background-color: #f4f4f4;
+    border-radius: 30px;
+    box-shadow: 12px 12px 22px rgba(57, 57, 57, 0.783);
+  }
+
+  .formInputStyle {
+    margin-bottom: 10px;
+    width: 97%;
+    padding: 8px;
+  }
+  
+  .form-title {
+    font-weight: bold;
+  }
+  
+  .sub-title {
+    font-weight: 700;
+    opacity: 0.4;
+  }
+  
+  .signup-form-wrapper {
+    padding: 0 25px 25px 25px;
+  }
+  
+  .btnLogin {
+    border: none;
+    outline: none;
+    height: 50px;
+    width: 100%;
+    background-color: black !important;
+    color: white;
+    border-radius: 4px;
+    font-weight: bold;
+    box-shadow: 6px 6px 12px rgba(57, 57, 57, 0.783);
+    padding: 5px !important;
+  }
+  
+  .btn-login:hover {
+    background-color: white;
+    border: 1px solid;
+    color: black;
+  }
+  
+  .staff-signup-bg-image {
+    background-image: url('../../../assets//signup-img.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100%;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    position: relative;
+    /* filter: blur(1px); */
+  }
+  
+  .bg-text {
+    color: rgb(255 255 255 / 92%);
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 80%;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .hyperlink {
+    text-align: center;
+  }
+  
+  @media only screen and (min-width: 768px) {
+    .outer-wrapper {
+      padding: 0 20px !important;
+    }
+  
+    .staff-signup-bg-image {
+      background-image: url('../../../assets/signup-img.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 280px;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      /* filter: blur(1px); */
+    }
+    .bg-text {
+      display: none;
+    }
+    .signup-container {
+      border-radius: 0;
+    }
+  }
+  
