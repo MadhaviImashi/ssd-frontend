@@ -1,28 +1,28 @@
-import { Button, Modal } from "react-bootstrap";
-const Message = (props) => {
-  
+import React from "react";
+import { Col, Container, Row } from "react-bootstrap";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
+import './msg.css';
+import { Card } from "@mui/material";
 
+const MsgCard = (props) => {
   return (
-    <Modal
-      {...props}
-      size="md"
-      aria-labelledby="contained-modal-title-vcenter"
-      centered
-    >
-      <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
-          {props.title}
-        </Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        
-        {props.message}
-      </Modal.Body>
-      <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
-      </Modal.Footer>
-    </Modal>
+    <>
+      <Container className="cart-item-card-wrap">
+        <Card className="cart-item-card">
+          <Row>
+            <Col className="cart-card-right">
+              <CardContent>
+                <Typography variant="body2"><b>Date - </b> { props.msg.sentDate}</Typography>
+                <Typography variant="body2"><b>Time - </b>{ props.msg.sentTime}</Typography>
+                <Typography variant="body2"><b>Message - </b>{ props.msg.message}</Typography>
+              </CardContent>
+            </Col>
+          </Row>
+        </Card>
+      </Container>
+    </>
   );
 };
 
-export default Message;
+export default MsgCard;
