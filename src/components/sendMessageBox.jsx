@@ -1,6 +1,4 @@
 import React from "react";
-import { useNavigate } from "react-router";
-import { Link } from "react-router-dom";
 import * as Icon from 'react-bootstrap-icons';
 import { Button } from "@mui/material";
 import TextareaAutosize from '@mui/base/TextareaAutosize';
@@ -9,6 +7,8 @@ import * as yup from "yup";
 import { saveMessages } from "../API/messageSaver/msgAPI"
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Link } from 'react-router-dom';
+
 
 const SendMessageBox = () => {
 
@@ -67,29 +67,32 @@ const SendMessageBox = () => {
   return (
       <>
           <ToastContainer />
-          <h5 style={{ display: "flex", flexDirection: "row", justifyContent: "center", marginTop: "240px"}}>Hi {userName} 👋</h5>
+          <h5 style={{ display: "flex", flexDirection: "row", justifyContent: "center", marginTop: "160px"}}>Hi {userName} 👋</h5>
           <form onSubmit={formik.handleSubmit}>
-            <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", padding: "20px" }}>
-                <TextareaAutosize
+            <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", padding: "20px", paddingBottom: 5}}>
+                  <TextareaAutosize
+                      required={true}
                     maxRows={4}
                     name="message"
                     aria-label="maximum height"
                     placeholder="Type your message here..."
                     value={formik.values.message}
                     onChange={formik.handleChange}
-                    style={{ width: 480, height: 70, fontSize: "1.12rem", marginLeft: 20}}
+                    style={{ width: 650, padding: 10, height: 70, fontSize: "1.12rem",  border: "1px solid #0a0a4a"}}
                 />
                 <div>
                     <Button
                         type="submit"
-                        style={{ paddingTop: "8px", color: "#0a0a4a", textDecoration: "underline" }}>
+                        style={{ paddingTop: "8px", paddingBottom: 10, border: "1px solid #0a0a4a", color: "#0a0a4a", textDecoration: "underline" }}>
                             <Icon.SendFill color="#0a0a4a" size={50}/>
                     </Button>
                 </div>
             </div>
           </form>
-
           
+          <Link to="/msg-history">
+            <span style={{ display: "flex", flexDirection: "row", justifyContent: "center", marginBottom: "30px"}}>view message history</span>
+          </Link>
     </>
   );
 };
