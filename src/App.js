@@ -6,6 +6,7 @@ import UploadDrive from "./components/pages/UploadDrive";
 import AdminHome from './components/pages/admins/AdminHome';
 import WorkerHome from './components/pages/workers/WorkerHome';
 import ManagerHome from './components/pages/managers/ManagerHome';
+import MsgHistory from './components/Message/MessageHistory';
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
                     <Route path="/admin-home" element={<AdminHome />} />
                     <Route path="/worker-home" element={<WorkerHome />} />
                     <Route path="/manager-home" element={<ManagerHome />} />
+                    <Route path="/msg-history" element={<MsgHistory />} />
                 </Routes>
             </BrowserRouter>
         </>
