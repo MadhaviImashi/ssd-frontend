@@ -67,7 +67,7 @@ const SendMessageBox = () => {
   return (
       <>
           <ToastContainer />
-          <h5 style={{ display: "flex", flexDirection: "row", justifyContent: "center", marginTop: "160px"}}>Hi {userName} 👋</h5>
+          <h5 style={{ display: "flex", flexDirection: "row", justifyContent: "center", marginTop: "180px"}}>Hi {userName} 👋</h5>
           <form onSubmit={formik.handleSubmit}>
             <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", padding: "20px", paddingBottom: 5}}>
                   <TextareaAutosize
