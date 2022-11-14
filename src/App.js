@@ -19,6 +19,7 @@ function App() {
                     <Route path="/admin-home" element={<AdminHome />} />
                     <Route path="/worker-home" element={<WorkerHome />} />
                     <Route path="/manager-home" element={<ManagerHome />} />
+                    <Route path="/upload-files" element={<UploadDrive />} />
                     <Route path="/msg-history" element={<MsgHistory />} />
                 </Routes>
             </BrowserRouter>
