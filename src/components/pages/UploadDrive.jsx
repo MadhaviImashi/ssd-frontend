@@ -1,36 +1,52 @@
-import React, {Component} from 'react';
+import React, {Component, useState, useEffect} from 'react';
 import './styles.css';
-
+import { Link, useNavigate } from 'react-router-dom';
+import { Button } from "@mui/material";
+import Navigation from "../../components/Navigation";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Progress } from 'react-sweet-progress';
 import "react-sweet-progress/lib/style.css";
 import axios from "axios";
 
-export const redirectURL = process.env.REACT_APP_REDIRECT_URL;
-export const clientID = process.env.REACT_APP_CLIENT_ID;
-export const clientSecret = process.env.REACT_APP_CLIENT_SECRET;
-export const scopeEnv = process.env.REACT_APP_SCOPE;
+const redirectURL = process.env.REACT_APP_REDIRECT_URL;
+const clientID = process.env.REACT_APP_CLIENT_ID;
+const clientSecret = process.env.REACT_APP_CLIENT_SECRET;
+const scopeEnv = process.env.APP_SCOPE;
 
-class UploadDrive extends Component {
+//if the user has loged out, user should not be able to access this page
+const userType = localStorage.getItem("type");
+const isLoggedIn = localStorage.getItem("token");
+
+class UploadDrive extends Component {   
+
     constructor(props) {
-        super(props);
-        this.state = {
-            urlParams: null,
-            code: null,
-            redirect_uri: redirectURL,
-            client_secret: clientSecret,
-            client_id: clientID,
-            scope: scopeEnv,
-            access_token: null,
-            refresh_token: null,
-            expires_in: null,
-            token_type: null,
-            selectedFile: null,
-            image: null,
-            progress: 0,
+            super(props);
+            this.state = {
+                urlParams: null,
+                code: null,
+                redirect_uri: redirectURL,
+                client_secret: clientSecret,
+                client_id: clientID,
+                scope: scopeEnv,
+                access_token: null,
+                refresh_token: null,
+                expires_in: null,
+                token_type: null,
+                selectedFile: null,
+                image: null,
+                progress: 0,
 
-        }
+            }        
+    }
+            
+    logout = () => {
+
+        localStorage.setItem("token", "");
+        localStorage.setItem("user_id", "");
+        localStorage.setItem("type",  "");
+        localStorage.setItem("email", "");
+        localStorage.setItem("name", "");
     }
 
     setUrlParamsCode = () => {
@@ -44,6 +60,20 @@ class UploadDrive extends Component {
     }
 
     componentDidMount() {
+
+        // if (!isLoggedIn && userType!=="admin") {
+        //     Navigate('/login');
+        //   }
+        //   if (isLoggedIn) {
+        //     if (userType === 'admin') {
+        //         Navigate("/admin-home")
+        //     } else if (userType === 'worker') {
+        //         Navigate("/worker-home");
+        //     }
+        //     else if (userType === 'manager') {
+        //         Navigate("/manager-home");
+        //     }
+        //   }
 
         this.setUrlParamsCode();
         setTimeout(() => {
@@ -77,40 +107,24 @@ class UploadDrive extends Component {
                             localStorage.setItem("expires_in",data.expires_in);
                             localStorage.setItem("scope",data.scope);
                             localStorage.setItem("token_type",data.expires_in);
-                            window.history.pushState({}, document.title, "/upload");
+                            window.history.pushState({}, document.title, "/upload-files");
 
                         }
                     );
             } else {
                 console.log('code invalid');
             }
-
         }, 1000);
-
     }
 
-    async doUpload() {
-        // const formData = new FormData();
-        // formData.append('image', this.state.selectedFile, this.state.selectedFile.name);
-        // formData.append('upload_file', true);
-        // console.log("Bearer "+localStorage.getItem("access_token"));
-
-        // POST request using fetch with async/await
-        // const requestOptions = {
-        //     method: 'POST',
-        //     headers: {
-        //         contentType: this.state.selectedFile.type,
-        //         Authorization: "Bearer " + localStorage.getItem("access_token")
-        //     },
-        //     body: this.state.selectedFile,
-        // };
-        // await fetch('https://www.googleapis.com/upload/drive/v3/files?uploadType=media', requestOptions)
-        //     .then( response => {
-        //         console.log(response.json());
-        //         console.log(response.data);
-        //     });
+    doUpload = async () => {
+        const formData = new FormData();
+        formData.append('image', this.state.selectedFile, this.state.selectedFile.name);
+        formData.append('upload_file', true);
+        console.log("Bearer "+localStorage.getItem("access_token"));
 
         await axios.post('https://www.googleapis.com/upload/drive/v3/files?uploadType=media', this.state.selectedFile, {
+            
             onUploadProgress: progressEvent => {
                 console.log('Upload Progress: ' + Math.round(progressEvent.loaded / progressEvent.total * 100) + '%' );
                 this.setState({
@@ -122,8 +136,26 @@ class UploadDrive extends Component {
         })
             .then( response => {
                 console.log(response);
+                toast.success('File uploaded!', {
+                    position: "top-right",
+                    autoClose: 3000,
+                    hideProgressBar: true,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
             }).catch( err => {
                 console.log(err);
+                toast.error("File couldn't be uploaded", {
+                    position: "top-right",
+                    autoClose: 3000,
+                    hideProgressBar: true,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
             })
     }
 
@@ -146,29 +178,17 @@ class UploadDrive extends Component {
     fileUploadHandler = () => {
         if (this.state.selectedFile){
             this.doUpload().then(() => {
-                toast.success('Image uploaded!', {
-                    position: "top-right",
-                    autoClose: 3000,
-                    hideProgressBar: true,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                });
                 this.clearImage();
                 setTimeout(() => {
                     this.setState({
                         progress: 0,
                     })
                 }, 6000);
-
-
-
             }).catch(err => {
                 console.log(err);
             })
         } else {
-            toast.error('Please select a image', {
+            toast.error('Please select a file', {
                 position: "top-right",
                 autoClose: 3000,
                 hideProgressBar: true,
@@ -178,7 +198,6 @@ class UploadDrive extends Component {
                 progress: undefined,
             });
         }
-
     }
 
     clearImage = () => {
@@ -190,13 +209,25 @@ class UploadDrive extends Component {
     }
 
     render() {
+
+        const { Navigate } = this.props;
         return (
-            <div className="wrapper">
+            <>
+                <Navigation />
+                <div style={{display: "flex", flexDirection: "row", marginTop: "25px", justifyContent: "space-between"}}>
+                    <div style={{ paddingLeft: "40px", fontSize: "18px", fontWeight: "500" }}>ABC Company / Managers / Upload Files</div>
+                    <Link to="/login"><Button
+                        onClick={this.logout(Navigate)}
+                        style={{ paddingTop: "0px", marginRight: "20px", color: "#0a0a4a", textDecoration: "underline", fontWeight: "600" }}>Logout
+                    </Button></Link>
+                </div>
                 <ToastContainer />
+
+                
+              <div className="wrapper">
                 <div className="container">
                     {/* <img src={googleLogo} width="40" height="40" alt="google drive"/> */}
-                    <h6 style={{marginBottom: 5, color: "darkgray", marginTop: 60, textAlign: "center"}}>
-                                Upload files
+                    <h6 style={{marginBottom: 5, color: "darkgray", marginTop: 170, textAlign: "center"}}>
                     </h6>
                     
                     <div className="upload-container">
@@ -226,6 +257,8 @@ class UploadDrive extends Component {
                     <br/>
                 </div>
             </div>
+            </>
+ 
         );
     }
 }
