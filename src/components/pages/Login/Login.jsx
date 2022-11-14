@@ -42,14 +42,6 @@ const InnerTheme = createTheme({
   },
 });
 
-const OuterTheme = createTheme({
-  palette: {
-    primary: {
-      main: "rgb(255,128,0)",
-    },
-  },
-});
-
 const validationSchema = yup.object({
   email: yup
     .string("Enter your email")
@@ -147,10 +139,6 @@ const Login = () => {
             })
     },
   });
-
-  const res = () => {
-    navigate("/register");
-  };
 
   return (
     <>

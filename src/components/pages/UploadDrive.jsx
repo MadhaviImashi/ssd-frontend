@@ -1,6 +1,6 @@
-import React, {Component, useState, useEffect} from 'react';
+import React, {Component} from 'react';
 import './styles.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Button } from "@mui/material";
 import Navigation from "../../components/Navigation";
 import { ToastContainer, toast } from 'react-toastify';
@@ -15,8 +15,8 @@ const clientSecret = process.env.REACT_APP_CLIENT_SECRET;
 const scopeEnv = process.env.APP_SCOPE;
 
 //if the user has loged out, user should not be able to access this page
-const userType = localStorage.getItem("type");
-const isLoggedIn = localStorage.getItem("token");
+// const userType = localStorage.getItem("type");
+// const isLoggedIn = localStorage.getItem("token");
 
 class UploadDrive extends Component {   
 
@@ -60,20 +60,6 @@ class UploadDrive extends Component {
     }
 
     componentDidMount() {
-
-        // if (!isLoggedIn && userType!=="admin") {
-        //     Navigate('/login');
-        //   }
-        //   if (isLoggedIn) {
-        //     if (userType === 'admin') {
-        //         Navigate("/admin-home")
-        //     } else if (userType === 'worker') {
-        //         Navigate("/worker-home");
-        //     }
-        //     else if (userType === 'manager') {
-        //         Navigate("/manager-home");
-        //     }
-        //   }
 
         this.setUrlParamsCode();
         setTimeout(() => {

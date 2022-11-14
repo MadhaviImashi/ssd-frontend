@@ -1,6 +1,6 @@
 import MsgCard from "./Message";
 import React, {useState, useEffect} from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container} from "react-bootstrap";
 import { getMessageHistory } from "../../API/messageSaver/msgAPI";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
@@ -15,7 +15,7 @@ const MsgHistory = (props) => {
     const [userName, setUserName] = useState('');
 
     const [isLoggedIn] = React.useState(localStorage.getItem("token"));
-    const userType = localStorage.getItem("type");
+    // const userType = localStorage.getItem("type");
     const uid = localStorage.getItem("user_id");
 
 
