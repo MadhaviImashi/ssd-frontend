@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+###### EAD Assignment (FrontEnd - Java)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Web application (Software Security Development)
 
-## Available Scripts
+### Project Requirements:  
+#### Functional Requirements
+- Admin should be able to create accounts for staff members
+- Managers should be able to send messages and upload files
+- Workers should only be able to send messages
+- User authentication to validate the user
+- Each user should be redirected to the correct, privileged section of the system according
+to the user role
+#### Non-Functional Requirements
+- Security
+- Messages & files should be able to send over an unsecured network
+- Access Control – Users should be allowed access to privileged sections only
+- Integrity – Should ensure that the messages sent by owners cannot be tampered
+with by any intruder
+- Confidentiality – Login credentials should be securely stored, and unauthorized
+people should not be able to view them
+- Message Authentication – Only the person (a worker/a manager) who sends the
+message can view his/her message
+- Validate user inputs
+- Ensure the security of passwords
 
-In the project directory, you can run:
+Backend repo: https://github.com/MadhaviImashi/ssd-backend
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Web App User Interfaces
+<img width="470" alt="image" src="https://user-images.githubusercontent.com/62797122/204991115-597bbd90-89b2-436e-ab26-8e9058fcc645.png">
+<img width="470" alt="image" src="https://user-images.githubusercontent.com/62797122/204991150-f1759daa-533e-4f83-9736-f2a9700f3e16.png">
+<img width="470" alt="image" src="https://user-images.githubusercontent.com/62797122/204991181-370771b3-b90c-4885-b575-80e02911e88d.png">
+<img width="470" alt="image" src="https://user-images.githubusercontent.com/62797122/204991598-72500abc-2998-4300-ad3f-b9cc6a2592db.png">
+<img width="470" alt="image" src="https://user-images.githubusercontent.com/62797122/204991645-6acbb866-f4b6-458c-be52-b15a18b355ea.png">
+<img width="470" alt="image" src="https://user-images.githubusercontent.com/62797122/204991261-3c53be61-2370-4094-90f1-7ccea24a04c1.png">
+<img width="470" alt="image" src="https://user-images.githubusercontent.com/62797122/204991327-f457e2d7-f60e-4df2-ad3d-cf7bdbf77a31.png">
+<img width="470" alt="image" src="https://user-images.githubusercontent.com/62797122/204991351-ad920bea-7230-4e23-8028-76131b4e0128.png">
+<img width="470" alt="image" src="https://user-images.githubusercontent.com/62797122/204991376-b9dd0821-fa15-44b9-9de3-344cdef37903.png">
+<img width="470" alt="image" src="https://user-images.githubusercontent.com/62797122/204991530-00ba1c12-f200-4aad-bdc4-8b2ec8bc5c62.png">
+<img width="470" alt="image" src="https://user-images.githubusercontent.com/62797122/204991428-9f43dc19-387c-4266-b612-9ff8f8ca75dd.png">
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+***
+### Contributors
 
-### `npm test`
+| Registration No | Developer               |
+| --------------- | --------------------    |
+| IT19961422      | Uyanahewa M.I.R         | 
+| IT19972176      | Jayawardana G.V.H.D     |
+| IT19974910      | Hapugala H.A.V.V        | 
+| IT19972244      | Thilakarathne M.H.K.T.S | 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+***
